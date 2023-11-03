@@ -9,7 +9,7 @@
 </head>
 
 <body>
-    <h1 class="italic bg-red"> sdfasfdsafsafddf </h1>
+    <h1 class="m-9 font-bold text-9xl text-slate-200">Ini Web saya</h1>
 </body>
 
 </html>
