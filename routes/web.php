@@ -17,7 +17,16 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('anjay', function () {
-    $data = ['nama'=>'aufal','umur'=>'20'];
-    return view('anjay')->with($data);
+
+Route::get('/hello', function () {
+//    return "Hello world";
+    echo '<h1>Hello World</h1>';
+});
+
+Route::get('/praktikum', function(){
+    return view('praktikum');
+});
+
+Route::get('/test', function(){
+    return view('test', ["name"=>'aufal']);
 });
