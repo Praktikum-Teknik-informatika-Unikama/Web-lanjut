@@ -33,3 +33,6 @@ Route::get('/test', function(){
 });
 
 Route::get('/blog', [BlogController::class, 'index']);
+Route::get('/blog/{name}', [BlogController::class, 'getName']);
+Route::get('/daftar', [BlogController::class, 'daftar']);
+Route::post('/proses', [BlogController::class, 'proses']);

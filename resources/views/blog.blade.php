@@ -9,12 +9,14 @@
 <body style="text-align: center; margin: 0 auto;">
   <h1>Prakikum Web lanjut</h1>
   <p>Praktikum ini di sponsori oleh program studi teknik informatika</p>
+ 
+  {{ logger($nama) }}
   <table style="text-align: left; margin-left: auto;
   margin-right: auto;" rules="none">
     <tr>
       <td>Nama </td>
       <td> : </td>
-      <td>{{ $nama}} </td>
+      <td>{{ $nama }} </td>
     </tr>
     <tr>
       <td>Umur </td>
