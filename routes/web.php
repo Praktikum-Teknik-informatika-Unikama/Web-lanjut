@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\BlogController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -30,3 +31,5 @@ Route::get('/praktikum', function(){
 Route::get('/test', function(){
     return view('test', ["name"=>'aufal']);
 });
+
+Route::get('/blog', [BlogController::class, 'index']);
