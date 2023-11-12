@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\HalloController;
+use App\Http\Controllers\WelcomeController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,20 +15,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/',[WelcomeController::class, 'index']);
+// Route::get('/home',[WelcomeController::class, 'index']);
+// Route::get('/welcome',[WelcomeController::class, 'welcome']);
+// Route::post('/hallo',[WelcomeController::class, 'hallo']);
 
-
-Route::get('/hello', function () {
-//    return "Hello world";
-    echo '<h1>Hello World</h1>';
-});
-
-Route::get('/praktikum', function(){
-    return view('praktikum');
-});
-
-Route::get('/test', function(){
-    return view('test', ["name"=>'aufal']);
-});
+Route::resource('/anjay', WelcomeController::class);
