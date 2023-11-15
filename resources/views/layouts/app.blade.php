@@ -19,10 +19,13 @@
 </head>
 
 <body>
-    <main class="py-4">
+    <nav>
+        <h1>Ini navbar</h1>
+    </nav>
+    <main>
         @yield('content')
     </main>
-    </div>
+
 </body>
 
 </html>
