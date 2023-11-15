@@ -1,7 +1,6 @@
 <?php
 
-use App\Http\Controllers\FormController;
-use App\Http\Controllers\WelcomeController;
+use App\Http\Controllers\BiodataController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,14 +14,4 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/',[WelcomeController::class, 'index']);
-// Route::get('/home',[WelcomeController::class, 'index']);
-// Route::get('/welcome',[WelcomeController::class, 'welcome']);
-// Route::post('/hallo',[WelcomeController::class, 'hallo']);
-
-// Route::resource('/anjay', WelcomeController::class);
-
-
-Route::get('/input',[FormController::class,'input']);
-
-Route::post('/hasilinputan',[FormController::class, 'show']);
+Route::get('/biodata',[BiodataController::class, 'index']);
