@@ -16,8 +16,3 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/',[WelcomeController::class, 'index']);
-// Route::get('/home',[WelcomeController::class, 'index']);
-// Route::get('/welcome',[WelcomeController::class, 'welcome']);
-// Route::post('/hallo',[WelcomeController::class, 'hallo']);
-
-Route::resource('/anjay', WelcomeController::class);
