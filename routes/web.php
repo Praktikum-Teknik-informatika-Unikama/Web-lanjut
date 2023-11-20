@@ -1,7 +1,7 @@
 <?php
 
-use App\Http\Controllers\HalloController;
-use App\Http\Controllers\WelcomeController;
+
+use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,4 +15,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/',[WelcomeController::class, 'index']);
+// untuk home
+Route::get('/',[HomeController::class, 'index']);
+// untuk contact
+Route::get('/contact',[HomeController::class, 'contact']);
+// untuk about
+Route::get('/about',[HomeController::class, 'about']);

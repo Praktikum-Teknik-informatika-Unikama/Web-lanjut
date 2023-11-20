@@ -1,5 +1,5 @@
 @extends('layouts.app')
 
 @section('conten')
-    Ini halaman home
+    Ini halaman contact
 @endsection
