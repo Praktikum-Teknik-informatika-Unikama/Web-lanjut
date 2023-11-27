@@ -1,6 +1,5 @@
 <?php
 
-use App\Http\Controllers\HalloController;
 use App\Http\Controllers\WelcomeController;
 use Illuminate\Support\Facades\Route;
 
