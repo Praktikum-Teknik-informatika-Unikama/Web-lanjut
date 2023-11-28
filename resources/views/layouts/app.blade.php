@@ -5,32 +5,28 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>{{ config('app.name', 'Laravel') }}</title>
-    <!-- Scripts -->
-    @vite(['resources/sass/app.scss', 'resources/js/app.js'])
 </head>
 
-<body>
-    <div class="container py-4">
-        <nav>
-            <ul class="nav nav-pills nav-justified">
-                <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="/">Active</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Much longer nav link</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Link</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link disabled" aria-disabled="true">Disabled</a>
-                </li>
-            </ul>
-        </nav>
-        <main class="py-4">
-            @yield('content')
-        </main>
-    </div>
+<body style="padding: 4em">
+    <nav>
+        <ul style="list-style-type: none;  list-style-position: inside; padding-left:0;">
+            <li>
+                <a href="/">Home</a>
+            </li>
+            <li>
+                <a href="/add-mahasiswa">Tambah mahasiswa</a>
+            </li>
+            <li>
+                <a href="/mahasiswa">Mahasiswa</a>
+            </li>
+        </ul>
+    </nav>
+    <main style="padding: 0em 2em">
+        @yield('content')
+    </main>
+    <footer>
+        <p>Copyleft &copy; 2023 praktikum Web lanjtu Universitas PGRI Kanjuruhan malang</p>
+    </footer>
 </body>
 
 </html>
