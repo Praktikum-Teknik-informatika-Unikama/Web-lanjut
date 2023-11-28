@@ -11,4 +11,5 @@ class Mahasiswa extends Model
     protected $table = 'mahasiswa';
     protected $primaryKey = 'id';
     public $incrementing = true;
+    public $timestamp = true;
 }
