@@ -17,7 +17,7 @@
         @yield('content')
     </main>
     <footer>
-        <p>Copyleft &copy; 2023 praktikum Web lanjtu Universitas PGRI Kanjuruhan malang</p>
+        <p>Copyleft &copy; 2023 praktikum Web lanjut Universitas PGRI Kanjuruhan malang</p>
     </footer>
 </body>
 <script>

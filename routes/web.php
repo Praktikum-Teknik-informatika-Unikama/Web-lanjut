@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\MahasiswaController;
+use App\Http\Controllers\ProductController;
 use App\Http\Controllers\WelcomeController;
 use Illuminate\Support\Facades\Route;
 
@@ -22,6 +23,9 @@ Route::get('/form/{id?}', [MahasiswaController::class, 'viewForm'])->name('form'
 
 Route::get('/mahasiswa/{id?}', [MahasiswaController::class, 'read'])->name('getdata');
 Route::post('/add-mahasiswa', [MahasiswaController::class, 'create'])->name('create');
-Route::put('/update-mahasiswa', [MahasiswaController::class, 'create'])->name('update');
+Route::put('/update-mahasiswa/{id}', [MahasiswaController::class, 'create'])->name('update');
 Route::delete('/delete-mahasiswa/{id}', [MahasiswaController::class, 'delete'])->name('delete');
+
+
+Route::resource('product', ProductControlle::class);
 

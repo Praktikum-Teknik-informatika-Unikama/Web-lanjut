@@ -7,19 +7,24 @@ use Illuminate\Http\Request;
 
 class MahasiswaController extends Controller
 {
-    public function create(Request $request)
+    public function create(Request $request,?int $id=null)
     {
         try {
-            Mahasiswa::updateOrCreate([
+            if($request->route()->getName() == "update"){
+
+                $mahasiswa = Mahasiswa::find($id);
+                $mahasiswa->nama = $request->nama;
+                $mahasiswa->nim = $request->nim;
+                $mahasiswa->prodi = $request->prodi;
+                $mahasiswa->save();
+                return redirect()->to('mahasiswa')->with('alert', 'Data berhasil diupdate');
+            }
+            
+            Mahasiswa::create([
                 "nama" => $request->nama,
                 "nim" => $request->nim,
                 "prodi" => $request->prodi
             ]);
-
-            if($request->route()->getName() == "update"){
-
-                return redirect()->to('mahasiswa')->with('alert', 'Data berhasil diupdate');
-            }
 
             return redirect()->to('mahasiswa')->with('alert', 'Data berhasil disimpan');
         } catch (\Exception $e) {
@@ -44,10 +49,6 @@ class MahasiswaController extends Controller
 
     public function read(?int $id=null)
     {
-        if ($id) {
-            $mahasiswa = Mahasiswa::where('id', $id)->get();
-            return view('data-mahasiswa', ['mahasiswa' => $mahasiswa]);
-        }
         $mahasiswa = Mahasiswa::all();
         return view('data-mahasiswa', ['mahasiswas' => $mahasiswa]);
     }
