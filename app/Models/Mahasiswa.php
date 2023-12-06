@@ -9,7 +9,6 @@ class Mahasiswa extends Model
 {
     use HasFactory;
     protected $table = 'mahasiswa';
-    protected $primaryKey = 'id';
+    protected $primarykey = 'id';
     public $incrementing = true;
-    public $timestamp = true;
 }
