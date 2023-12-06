@@ -17,6 +17,6 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/',[WelcomeController::class, 'index']);
 
-Route::get('/add-mahasiswa', [MahasiswaController::class, 'isiForm']);
+Route::get('/add-mahasiswa/{id?}', [MahasiswaController::class, 'viewForm']);
 Route::get('/mahasiswa', [MahasiswaController::class, 'read']);
-Route::post('/add-mahasiswa', [MahasiswaController::class, 'create']);
+Route::post('/mahasiswa', [MahasiswaController::class, 'create']);

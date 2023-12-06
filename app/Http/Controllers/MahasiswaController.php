@@ -4,28 +4,36 @@ namespace App\Http\Controllers;
 
 use App\Models\Mahasiswa;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 
 class MahasiswaController extends Controller
 {
     public function create(Request $request)
     {
         try {
-            Mahasiswa::create([
+            Mahasiswa::updateOrCreate([
                 "nama" => $request->nama,
                 "nim" => $request->nim,
                 "prodi" => $request->prodi
             ]);
 
-            return redirect()->back()->with('alert', 'Data berhasil dimasukkan');
+            return redirect()->to('mahasiswa')->with('alert', 'Data berhasil dimasukkan');
         } catch (\Exception $e) {
             return redirect()->back()->with('alert', $e->getMessage());
         }
     }
 
-    public function isiForm()
+    public function viewForm(?int $id=null)
     {
-        return view('input-form');
+        try {
+            if ($id) {
+                $mahasiswa = Mahasiswa::where('id', $id)->first();
+                return view('input-form', ['mahasiswa' => $mahasiswa]);
+            }
+
+            return view('input-form', ['mahasiswa' => null]);
+        } catch (\Exception $e) {
+            return redirect()->back()->with('alert', $e->getMessage());
+        }
     }
 
     public function read()
@@ -33,4 +41,5 @@ class MahasiswaController extends Controller
         $mahasiswa = Mahasiswa::all();
         return view('data-mahasiswa', ['mahasiswas' => $mahasiswa]);
     }
+
 }
