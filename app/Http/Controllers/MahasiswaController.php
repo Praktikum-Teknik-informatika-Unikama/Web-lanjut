@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Mahasiswa;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -9,13 +10,17 @@ class MahasiswaController extends Controller
 {
     public function create(Request $request)
     {
-        DB::table('mahasiswa')->insert([
-            "nama" => $request->nama,
-            "nim" => $request->nim,
-            "prodi" => $request->prodi
-        ]);
+        try {
+            Mahasiswa::create([
+                "nama" => $request->nama,
+                "nim" => $request->nim,
+                "prodi" => $request->prodi
+            ]);
 
-        return 'data berhasil di masukkan';
+            return redirect()->back()->with('alert', 'Data berhasil dimasukkan');
+        } catch (\Exception $e) {
+            return redirect()->back()->with('alert', $e->getMessage());
+        }
     }
 
     public function isiForm()
@@ -25,6 +30,7 @@ class MahasiswaController extends Controller
 
     public function read()
     {
-        return view('data-mahasiswa');
+        $mahasiswa = Mahasiswa::all();
+        return view('data-mahasiswa', ['mahasiswas' => $mahasiswa]);
     }
 }
