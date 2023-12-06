@@ -17,12 +17,16 @@
                     <td style="border:1px solid; padding:10px;">{{ $mahasiswa->nim }}</td>
                     <td style="border:1px solid; padding:10px;">{{ $mahasiswa->prodi }}</td>
                     <td style="border:1px solid; padding:10px;">
+                        <form id="delete" action="{{ route('delete', $mahasiswa->id) }}" method="post"
+                            style="display: none;"> @method('delete') @csrf </form>
                         <button>
-                            <a href="/add-mahasiswa/{{ $mahasiswa->id }}">Edit</a>
-
+                            <a href="{{ route('getdata', $mahasiswa->id) }}"">detail</a>
                         </button>
                         <button>
-                            delete
+                            <a href="{{ route('form', $mahasiswa->id) }}"">edit</a>
+                        </button>
+                        <button>
+                            <a href="javascript:void(0)" onclick="document.getElementById('delete').submit()">delete</a>
                         </button>
                     </td>
                 </tr>

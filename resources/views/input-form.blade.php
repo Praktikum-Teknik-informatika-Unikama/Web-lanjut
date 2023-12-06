@@ -4,7 +4,7 @@
     @if (!$mahasiswa)
         <h2>Input Data Diri</h2>
         <div>
-            <form action="/mahasiswa" method="post">
+            <form action="/add-mahasiswa" method="post">
                 @csrf
                 <label for="nama">Masukkan nama anda : </label>
                 <input type="text" id="nama" name="nama" placeholder="ex. jhon"> <br><br>
@@ -18,15 +18,16 @@
     @else
         <h2>Update Data Diri</h2>
         <div>
-            <form action="/mahasiswa" method="post">
+            <form action="/update-mahasiswa" method="POST">
                 @csrf
+                <input name="_method" type="hidden" value="PUT">
                 <label for="nama">Nama : </label>
                 <input type="text" id="nama" name="nama" value="{{$mahasiswa->nama}}"> <br><br>
                 <label for="nim">Nomer induk mahasiswa : </label>
                 <input type="text" id="nim" name="nim" value="{{$mahasiswa->nim}}"> <br><br>
                 <label for="prodi">Program studi : </label>
                 <input type="text" id="prodi" name="prodi" value="{{$mahasiswa->prodi}}"><br><br>
-                <input type="submit" value="submit">
+                <button type="submit">submit</button>
             </form>
         </div>
     @endif
