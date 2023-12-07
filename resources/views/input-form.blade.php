@@ -1,15 +1,17 @@
 @extends('layouts.app')
 
 @section('content')
-    {{ $mahasiswa != null ? <h2>Update Data Diri</h2> : <h2>Input Data Diri</h2> }}
     @php
-        $action = $mahasiswa ? '/add-mahasiswa' : '/update-mahasiswa/{{ $mahasiswa->id }}';
+        $judul = $mahasiswa ? 'Update data diri' : 'Input data diri';
+        $method = $mahasiswa ? 'put' : 'post';
+        $action = $mahasiswa ? "/update-mahasiswa/$mahasiswa->id" : 'add-mahasiswa';
     @endphp
 
-
+    <h2>{{ $judul }}</h2>
     <div>
         <form action="{{ $action }}" method="post">
             @csrf
+            @method($method)
             <label for="nama">Masukkan nama anda : </label>
             <input type="text" id="nama" name="nama" value="{{ $mahasiswa ? $mahasiswa->nama : '' }}"
                 placeholder="ex. jhon"> <br><br>
