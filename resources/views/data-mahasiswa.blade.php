@@ -17,8 +17,8 @@
                     <td style="border:1px solid; padding:10px;">{{ $mahasiswa->nim }}</td>
                     <td style="border:1px solid; padding:10px;">{{ $mahasiswa->prodi }}</td>
                     <td style="border:1px solid; padding:10px;">
-                        <form id="delete" action="{{ route('delete', $mahasiswa->id) }}" method="post"
-                            style="display: none;"> @method('delete') @csrf </form>
+                        <form id="{{$mahasiswa->id}}" action="{{ route('delete', $mahasiswa->id) }}" method="post"
+                            style="display: block;"> @method('delete') @csrf </form>
                         <button>
                             <a href="{{ route('getdata', $mahasiswa->id) }}"">detail</a>
                         </button>
@@ -26,7 +26,7 @@
                             <a href="{{ route('form', $mahasiswa->id) }}"">edit</a>
                         </button>
                         <button>
-                            <a href="javascript:void(0)" onclick="document.getElementById('delete').submit()">delete</a>
+                            <a href="javascript:void(0)" onclick="document.getElementById('{{$mahasiswa->id}}').submit()">delete</a>
                         </button>
                     </td>
                 </tr>
