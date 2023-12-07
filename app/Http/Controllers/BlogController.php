@@ -1,47 +1,65 @@
 <?php
-// sebagai penanda bahwa file ini bagian dari controllers
+
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Str; 
 
-
-// extends digunakan agar kita bisa mengakses semua fungsi / method didalam class 
-// Controler
-// untuk penulisan nama class harus sama dengan nama File    
 class BlogController extends Controller
 {
-    
-    // isi dari BlogController
+    /**
+     * Display a listing of the resource.
+     */
     public function index()
     {
-        // versi pertama
-        // return view('blog', ['nama'=>'Aufal', 'umur'=>20, 'nim'=>2134]);
-        // versi kedua
-        $nama= 'erer';
-        $umur= 'erer';
-        $nim=2134;
-        return view('blog', compact('nama', 'umur', 'nim'));
-        // versi ketiga
-
-        // return view('blog')->with($this->data);
+        //
+        return view('pages.welcome');
     }
 
-    public function getName($nama)
+    /**
+     * Show the form for creating a new resource.
+     */
+    public function create()
     {
-        return "Ini nama blognya $nama";
+        //
     }
 
-    public function daftar()
+    /**
+     * Store a newly created resource in storage.
+     */
+    public function store(Request $request)
     {
-        return view('daftar');
+        //
     }
 
-    public function proses(Request $request)
+    /**
+     * Display the specified resource.
+     */
+    public function show(string $id)
     {
-        $nama= Str::upper($request->nama);
-        $umur= $request->umur;
-        $nim=2134;
-        return view('blog', compact('nama', 'umur', 'nim'));
+        //
     }
-};
+
+    /**
+     * Show the form for editing the specified resource.
+     */
+    public function edit(string $id)
+    {
+        //
+    }
+
+    /**
+     * Update the specified resource in storage.
+     */
+    public function update(Request $request, string $id)
+    {
+        //
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     */
+    public function destroy(string $id)
+    {
+        //
+    }
+}
