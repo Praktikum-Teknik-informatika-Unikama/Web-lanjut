@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\MahasiswaController;
+use App\Http\Controllers\ProductController;
 use App\Http\Controllers\WelcomeController;
 use Illuminate\Support\Facades\Route;
 
@@ -25,4 +26,6 @@ Route::post('/add-mahasiswa', [MahasiswaController::class, 'create'])->name('cre
 Route::put('/update-mahasiswa/{id}', [MahasiswaController::class, 'create'])->name('update');
 Route::delete('/delete-mahasiswa/{id}', [MahasiswaController::class, 'delete'])->name('delete');
 
+
+Route::resource('product', ProductControlle::class);
 
