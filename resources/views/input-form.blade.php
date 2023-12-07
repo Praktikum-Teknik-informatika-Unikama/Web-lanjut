@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    {{ $mahasiswa != null ? echo '<h2>Update Data Diri</h2>' : echo '<h2>Input Data Diri</h2>' }}
+    {{ $mahasiswa != null ? <h2>Update Data Diri</h2> : <h2>Input Data Diri</h2> }}
     @php
         $action = $mahasiswa ? '/add-mahasiswa' : '/update-mahasiswa/{{ $mahasiswa->id }}';
     @endphp
