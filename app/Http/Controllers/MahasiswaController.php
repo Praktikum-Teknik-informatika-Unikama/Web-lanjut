@@ -58,10 +58,10 @@ class MahasiswaController extends Controller
         return view('data-mahasiswa', ['mahasiswas' => $mahasiswa]);
     }
 
-    public function delete(Request $request)
+    public function delete($id)
     {
         try {
-            Mahasiswa::where('id', $request->id)->delete();
+            Mahasiswa::where('id', $id)->delete();
             return redirect()->to('mahasiswa')->with('alert', 'Data berhasil dihapus');
         } catch (\Exception $e) {
             //

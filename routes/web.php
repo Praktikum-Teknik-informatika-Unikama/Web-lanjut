@@ -27,5 +27,5 @@ Route::put('/update-mahasiswa/{id}', [MahasiswaController::class, 'create'])->na
 Route::delete('/delete-mahasiswa/{id}', [MahasiswaController::class, 'delete'])->name('delete');
 
 
-Route::resource('product', ProductControlle::class);
+// Route::resource('product', ProductControlle::class);
 
