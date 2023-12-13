@@ -9,8 +9,8 @@
     <nav>
         <ul style="list-style-type: none;  list-style-position: inside; padding-left:0;">
             <li><a href="/">Home</a></li>
-            <li><a href="/form">Tambah mahasiswa</a></li>
-            <li><a href="/mahasiswa">Mahasiswa</a></li>
+            <li><a href="{{route ('mahasiswa.create')}}">Tambah mahasiswa</a></li>
+            <li><a href="{{route('mahasiswa.index')}}">Mahasiswa</a></li>
         </ul>
     </nav>
     <main style="padding: 0em 2em">

@@ -18,14 +18,5 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/',[WelcomeController::class, 'index']);
 
-Route::get('/form/{id?}', [MahasiswaController::class, 'viewForm'])->name('form');
-
-
-Route::get('/mahasiswa/{id?}', [MahasiswaController::class, 'read'])->name('getdata');
-Route::post('/add-mahasiswa', [MahasiswaController::class, 'create'])->name('create');
-Route::put('/update-mahasiswa/{id}', [MahasiswaController::class, 'create'])->name('update');
-Route::delete('/delete-mahasiswa/{id}', [MahasiswaController::class, 'delete'])->name('delete');
-
-
-// Route::resource('product', ProductControlle::class);
+Route::resource('mahasiswa', MahasiswaController::class);
 

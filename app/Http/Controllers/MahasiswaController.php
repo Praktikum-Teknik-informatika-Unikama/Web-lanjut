@@ -7,59 +7,79 @@ use Illuminate\Http\Request;
 
 class MahasiswaController extends Controller
 {
-    public function create(Request $request, ?int $id = null)
+    /**
+     * Display a listing of the resource.
+     */
+    public function index()
     {
-        try {
-            if ($request->route()->getName() == "update") {
-
-                $mahasiswa = Mahasiswa::find($id);
-                $mahasiswa->nama = $request->nama;
-                $mahasiswa->nim = $request->nim;
-                $mahasiswa->prodi = $request->prodi;
-                $mahasiswa->save();
-                return redirect()->to('mahasiswa')->with('alert', 'Data berhasil diupdate');
-            }
-
-            Mahasiswa::create([
-                "nama" => $request->nama,
-                "nim" => $request->nim,
-                "prodi" => $request->prodi
-            ]);
-
-            return redirect()->to('mahasiswa')->with('alert', 'Data berhasil disimpan');
-        } catch (\Exception $e) {
-            return redirect()->back()->with('alert', $e->getMessage());
-        }
-    }
-
-    public function viewForm(?int $id = null)
-    {
-        try {
-            if ($id) {
-
-                $mahasiswa = Mahasiswa::where('id', $id)->first();
-                return view('pages.input-form', ['mahasiswa' => $mahasiswa]);
-            }
-
-            return view('pages.input-form', ['mahasiswa' => null]);
-        } catch (\Exception $e) {
-            return redirect()->back()->with('alert', $e->getMessage());
-        }
-    }
-
-    public function read(?int $id = null)
-    {
-        if ($id) {
-            $mahasiswa = Mahasiswa::where('id', $id)->get();
-            return view('pages.data-mahasiswa', ['mahasiswa' => $mahasiswa]);
-        }
-
+        //
         $mahasiswa = Mahasiswa::all();
         return view('pages.data-mahasiswa', ['mahasiswa' => $mahasiswa]);
     }
 
-    public function delete($id)
+    /**
+     * Show the form for creating a new resource.
+     */
+    public function create()
     {
+        //
+        return view('pages.input-form', ['mahasiswa' => null]);
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     */
+    public function store(Request $request)
+    {
+        //
+        Mahasiswa::create([
+            "nama" => $request->nama,
+            "nim" => $request->nim,
+            "prodi" => $request->prodi
+        ]);
+
+        return redirect()->to('mahasiswa')->with('alert', 'Data berhasil disimpan');
+    }
+
+    /**
+     * Display the specified resource.
+     */
+    public function show($id)
+    {
+        $mahasiswa = Mahasiswa::where('id', $id)->get();
+        return view('pages.data-mahasiswa', ['mahasiswa' => $mahasiswa]);
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     */
+    public function edit(string $id)
+    {
+        //
+        $mahasiswa = Mahasiswa::where('id', $id)->first();
+        return view('pages.input-form', ['mahasiswa' => $mahasiswa]);
+    }
+
+    /**
+     * Update the specified resource in storage.
+     */
+    public function update(Request $request, string $id)
+    {
+        //
+        $mahasiswa = Mahasiswa::find($id);
+        $mahasiswa->nama = $request->nama;
+        $mahasiswa->nim = $request->nim;
+        $mahasiswa->prodi = $request->prodi;
+        $mahasiswa->save();
+        return redirect()->to('mahasiswa')->with('alert', 'Data berhasil diupdate');
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     */
+    public function destroy(string $id)
+    {
+        //
         try {
             Mahasiswa::where('id', $id)->delete();
             return redirect()->to('mahasiswa')->with('alert', 'Data berhasil dihapus');
