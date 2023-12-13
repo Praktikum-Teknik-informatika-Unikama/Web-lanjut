@@ -10,23 +10,23 @@
                 <th style="border:1px solid; padding:10px; text-align:center">Prodi</th>
                 <th style="border:1px solid; padding:10px; text-align:center">Operasi</th>
             </tr>
-            @foreach ($mahasiswas as $mahasiswa)
+            @foreach ($mahasiswa as $mhs)
                 <tr>
                     <td style="border:1px solid; padding:10px;">{{ $loop->iteration }}</td>
-                    <td style="border:1px solid; padding:10px;">{{ $mahasiswa->nama }}</td>
-                    <td style="border:1px solid; padding:10px;">{{ $mahasiswa->nim }}</td>
-                    <td style="border:1px solid; padding:10px;">{{ $mahasiswa->prodi }}</td>
+                    <td style="border:1px solid; padding:10px;">{{ $mhs->nama }}</td>
+                    <td style="border:1px solid; padding:10px;">{{ $mhs->nim }}</td>
+                    <td style="border:1px solid; padding:10px;">{{ $mhs->prodi }}</td>
                     <td style="border:1px solid; padding:10px;">
-                        <form id="{{$mahasiswa->id}}" action="{{ route('delete', $mahasiswa->id) }}" method="post"
+                        <form id="{{$mhs->id}}" action="{{ route('delete', $mhs->id) }}" method="post"
                             style="display: none;"> @method('delete') @csrf </form>
                         <button>
-                            <a href="{{ route('getdata', $mahasiswa->id) }}"">detail</a>
+                            <a href="{{ route('getdata', $mhs->id) }}"">detail</a>
                         </button>
                         <button>
-                            <a href="{{ route('form', $mahasiswa->id) }}"">edit</a>
+                            <a href="{{ route('form', $mhs->id) }}"">edit</a>
                         </button>
                         <button>
-                            <a href="javascript:void(0)" onclick="document.getElementById('{{$mahasiswa->id}}').submit()">delete</a>
+                            <a href="javascript:void(0)" onclick="document.getElementById('{{$mhs->id}}').submit()">delete</a>
                         </button>
                     </td>
                 </tr>

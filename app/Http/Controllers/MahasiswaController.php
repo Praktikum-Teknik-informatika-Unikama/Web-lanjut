@@ -38,10 +38,10 @@ class MahasiswaController extends Controller
             if ($id) {
 
                 $mahasiswa = Mahasiswa::where('id', $id)->first();
-                return view('input-form', ['mahasiswa' => $mahasiswa]);
+                return view('pages.input-form', ['mahasiswa' => $mahasiswa]);
             }
 
-            return view('input-form', ['mahasiswa' => null]);
+            return view('pages.input-form', ['mahasiswa' => null]);
         } catch (\Exception $e) {
             return redirect()->back()->with('alert', $e->getMessage());
         }
@@ -51,11 +51,11 @@ class MahasiswaController extends Controller
     {
         if ($id) {
             $mahasiswa = Mahasiswa::where('id', $id)->get();
-            return view('data-mahasiswa', ['mahasiswas' => $mahasiswa]);
+            return view('pages.data-mahasiswa', ['mahasiswa' => $mahasiswa]);
         }
 
         $mahasiswa = Mahasiswa::all();
-        return view('data-mahasiswa', ['mahasiswas' => $mahasiswa]);
+        return view('pages.data-mahasiswa', ['mahasiswa' => $mahasiswa]);
     }
 
     public function delete($id)

@@ -18,19 +18,17 @@
     @else
         <h2>Update Data Diri</h2>
         <div>
-            <form action="/update-mahasiswa/{{$mahasiswa->id}}" method="POST">
+            <form action="{{ route('update', $mahasiswa->id) }}" method="POST">
                 @csrf
-                <input name="_method" type="hidden" value="PUT">
+                @method('put')
                 <label for="nama">Nama : </label>
-                <input type="text" id="nama" name="nama" value="{{$mahasiswa->nama}}"> <br><br>
+                <input type="text" id="nama" name="nama" value="{{ $mahasiswa->nama }}"> <br><br>
                 <label for="nim">Nomer induk mahasiswa : </label>
-                <input type="text" id="nim" name="nim" value="{{$mahasiswa->nim}}"> <br><br>
+                <input type="text" id="nim" name="nim" value="{{ $mahasiswa->nim }}"> <br><br>
                 <label for="prodi">Program studi : </label>
-                <input type="text" id="prodi" name="prodi" value="{{$mahasiswa->prodi}}"><br><br>
+                <input type="text" id="prodi" name="prodi" value="{{ $mahasiswa->prodi }}"><br><br>
                 <button type="submit">submit</button>
             </form>
         </div>
     @endif
-
-
 @endsection
