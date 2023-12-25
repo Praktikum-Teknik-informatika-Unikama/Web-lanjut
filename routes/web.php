@@ -1,7 +1,6 @@
 <?php
 
 use App\Http\Controllers\MahasiswaController;
-use App\Http\Controllers\ProductController;
 use App\Http\Controllers\WelcomeController;
 use Illuminate\Support\Facades\Route;
 
@@ -17,6 +16,5 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/',[WelcomeController::class, 'index']);
-
 Route::resource('mahasiswa', MahasiswaController::class);
 
